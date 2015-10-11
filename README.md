@@ -1,6 +1,6 @@
 # selection-mode package
 
-When selection-mode is on, ALL cursor movement modifies the selection
+When selection-mode is on, ALL cursor movement modifies the selection. [View on atom.io](https://atom.io/packages/selection-mode).
 
 ## Description
 
