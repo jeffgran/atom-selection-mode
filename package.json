@@ -1,7 +1,7 @@
 {
   "name": "selection-mode",
   "main": "./lib/selection-mode",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "When selection-mode is on, ALL cursor movement modifies the selection",
   "keywords": [
   ],
