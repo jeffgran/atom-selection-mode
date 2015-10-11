@@ -1,10 +1,9 @@
 {
   "name": "selection-mode",
   "main": "./lib/selection-mode",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "When selection-mode is on, ALL cursor movement modifies the selection",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": "selection-mode:toggle"
   },
@@ -13,6 +12,5 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
