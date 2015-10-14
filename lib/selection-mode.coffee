@@ -14,14 +14,16 @@ module.exports = SelectionMode =
     # Register command that toggles this view
     @subscriptions.add atom.commands.add 'atom-workspace',
     'selection-mode:toggle': => @toggle()
+    'selection-mode:toggle-without-deselecting': => @toggle({deselect: false})
     'selection-mode:cancel': => @toggleOff()
+    'selection-mode:off': => @toggleOff(null, {deselect: false})
 
   deactivate: ->
     @subscriptions.dispose()
 
   serialize: ->
 
-  toggle: ->
+  toggle: ({deselect} = {deselect: true}) ->
     textEditor = atom.workspace.getActiveTextEditor()
     view = atom.views.getView(textEditor)
 
@@ -35,7 +37,7 @@ module.exports = SelectionMode =
     else
       #console.log 'TransientMarkMode was toggled off!'
       # toggling off
-      @toggleOff(textEditor)
+      @toggleOff(textEditor, {deselect})
 
     # initialize the cursor movement callback just once.
     unless textEditor.transientMarkModeInitialized
@@ -47,7 +49,7 @@ module.exports = SelectionMode =
         if view.classList.contains("selection-mode")
           if event.textChanged
             # we did something with the selection, so turn it off
-            @toggleOff(textEditor)
+            @toggleOff(textEditor {deselect})
             return
 
           mark = textEditor.transientMarker.getHeadPosition()
@@ -72,10 +74,10 @@ module.exports = SelectionMode =
     textEditor.transientMarker = textEditor.getBuffer().markPosition(textEditor.getCursorBufferPosition())
     @fixCursors(textEditor) # we can't have the moveToEndOfSelection default option set!
 
-  toggleOff: (textEditor = atom.workspace.getActiveTextEditor()) ->
+  toggleOff: (textEditor = atom.workspace.getActiveTextEditor(), {deselect} = {deselect: true}) ->
     atom.views.getView(textEditor).classList.remove("selection-mode")
     textEditor.transientMarker = null
-    @clearSelections(textEditor)
+    @clearSelections(textEditor) if deselect
     @unfixCursors(textEditor) # but we should be polite and put it back how we found it.
 
   clearSelections: (textEditor) ->
