@@ -18,12 +18,23 @@ This package is better than other packages that offer similar functionality, bec
 ## Example keybinding
 
 ```coffee
-# you really only need this one
+# these work best in pairs. either this pair:
 'atom-workspace atom-text-editor.editor':
   'ctrl-space': 'selection-mode:toggle'
 
-# I like to have a dedicated "off" keybinding too
 'atom-workspace atom-text-editor.editor.selection-mode':
+  # this one toggles off without deselecting, which works
+  # well with the above, which deselects when toggling off
+  'ctrl-g': 'selection-mode:off'
+
+
+# ...or this pair
+'atom-workspace atom-text-editor.editor':
+  # this toggles but won't deselect when toggling back off
+  'ctrl-space': 'selection-mode:toggle-without-deselecting'
+
+'atom-workspace atom-text-editor.editor.selection-mode':
+  # this is your dedicated toggle-off-and-deselect
   'ctrl-g': 'selection-mode:cancel'
 ```
 
