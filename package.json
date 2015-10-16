@@ -5,7 +5,8 @@
   "description": "When selection-mode is on, ALL cursor movement modifies the selection",
   "keywords": [],
   "activationCommands": {
-    "atom-workspace": "selection-mode:toggle"
+    "atom-workspace": "selection-mode:toggle",
+    "atom-workspace": "selection-mode:toggle-without-deselecting"
   },
   "repository": "https://github.com/jeffgran/atom-selection-mode",
   "license": "MIT",
