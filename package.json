@@ -1,13 +1,13 @@
 {
   "name": "selection-mode",
   "main": "./lib/selection-mode",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "When selection-mode is on, ALL cursor movement modifies the selection",
   "keywords": [],
   "activationCommands": {
     "atom-workspace": [
-        "selection-mode:toggle",
-        "selection-mode:toggle-without-deselecting"
+      "selection-mode:toggle",
+      "selection-mode:toggle-without-deselecting"
     ]
   },
   "repository": "https://github.com/jeffgran/atom-selection-mode",
