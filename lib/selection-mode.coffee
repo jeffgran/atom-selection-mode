@@ -49,7 +49,7 @@ module.exports = SelectionMode =
         if view.classList.contains("selection-mode")
           if event.textChanged
             # we did something with the selection, so turn it off
-            @toggleOff(textEditor {deselect})
+            @toggleOff(textEditor, {deselect})
             return
 
           mark = textEditor.transientMarker.getHeadPosition()
