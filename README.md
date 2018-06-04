@@ -47,3 +47,8 @@ This package is better than other packages that offer similar functionality, bec
 ## Inspiration
 
 This package was inspired by my dependence on emacs' `transient-mark-mode`
+
+
+## Building and Publishing
+
+Reminder: To publish a new version, do NOT manually change anything in any files. Just run `apm publish <newversion>` and it will do everything.
